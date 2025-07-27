@@ -28,7 +28,7 @@ export const geographyData: PrefectureData[] = [
     id: 4,
     prefecture: "宮城県",
     capital: "仙台市",
-    attractions: ["牛タン", "伊達政宗"],
+    attractions: ["牛タン", "伊達政宗像"],
   },
   {
     id: 5,
