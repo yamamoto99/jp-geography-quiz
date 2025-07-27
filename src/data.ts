@@ -81,7 +81,7 @@ export const geographyData: PrefectureData[] = [
   {
     id: 13,
     prefecture: "東京都",
-    capital: "新宿区",
+    capital: "東京",
     attractions: ["東京タワー", "東京スカイツリー"],
   },
   {
