@@ -1,0 +1,193 @@
+/* 基本的なリセットとフォント設定 */
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff;
+  color: #333;
+}
+
+/* アプリ全体のコンテナ */
+.app-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 16px;
+}
+
+header h1 {
+  margin: 0;
+  color: #1a237e;
+}
+
+/* メインコンテンツエリア（テーブルと地図） */
+.main-content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* コントロールボタン */
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.control-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.control-button.show-all {
+  background-color: #4caf50;
+  color: white;
+}
+
+.control-button.show-all:hover {
+  background-color: #45a049;
+}
+
+.control-button.hide-all {
+  background-color: #f44336;
+  color: white;
+}
+
+.control-button.hide-all:hover {
+  background-color: #da190b;
+}
+
+.control-button.hide-except-prefecture {
+  background-color: #ff9800;
+  color: white;
+}
+
+.control-button.hide-except-prefecture:hover {
+  background-color: #f57c00;
+}
+
+.control-button.hide-attractions {
+  background-color: #9c27b0;
+  color: white;
+}
+
+.control-button.hide-attractions:hover {
+  background-color: #7b1fa2;
+}
+
+/* テーブルコンテナ */
+.table-container {
+  flex: 1; /* 利用可能な幅を最大限活用 */
+  min-width: 0; /* flexアイテムの最小幅を0にして、内容に応じて縮小可能にする */
+  overflow-x: auto; /* テーブルがはみ出す場合はスクロールを許可 */
+}
+
+/* 地図コンテナ */
+.map-container {
+  flex-shrink: 0; /* 地図は縮小しない */
+  width: 400px; /* 地図を大きくして番号が見えるように */
+  position: sticky;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.map-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 学習用テーブルのスタイル */
+.study-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.study-table th,
+.study-table td {
+  border: 1px solid #ddd;
+  padding: 10px; /* パディングを少し減らす */
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap; /* 折り返しを防ぐ */
+  font-size: 14px; /* フォントサイズを小さくする */
+}
+
+/* 番号カラムは狭くする */
+.study-table th:first-child,
+.study-table td:first-child {
+  width: 60px;
+  text-align: center;
+}
+
+.study-table th {
+  background-color: #e8eaf6;
+  font-weight: bold;
+}
+
+.study-table tbody tr {
+  transition: background-color 0.2s;
+}
+
+/* セルごとのクリック機能のスタイル */
+.answer-cell-container {
+  cursor: pointer;
+}
+
+/* 赤シート機能のスタイル */
+.answer-cell {
+  background-color: transparent;
+  color: #fff; /* 文字色を白にして隠す */
+  border-radius: 4px;
+  padding: 4px 8px;
+  user-select: none; /* テキスト選択を不可に */
+  white-space: nowrap; /* 改行を防ぐ */
+  overflow: hidden; /* はみ出した部分を隠す */
+  text-overflow: ellipsis; /* はみ出した部分を...で表示 */
+  display: inline-block;
+  width: 100%;
+}
+
+.answer-cell.visible {
+  background-color: transparent; /* 背景を透明に */
+  color: #333; /* 見えるときの文字色 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1240px) {
+  .main-content {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .table-container {
+    width: 100%;
+  }
+
+  .map-container {
+    position: static; /* stickyを解除 */
+    width: 100%;
+    max-width: 500px; /* 地図の最大幅を制限 */
+    margin-bottom: 20px;
+  }
+}
